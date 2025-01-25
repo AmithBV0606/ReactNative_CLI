@@ -8,10 +8,15 @@ import {
   Pressable,
   SafeAreaView,
   StyleSheet,
+  useColorScheme,
 } from 'react-native';
 import React from 'react';
 
 const App = () => {
+  const theme = useColorScheme();
+
+  console.log(theme); // light or dark based on system theme
+
   // Styling using javascript  object :
   // const styles = {
   //   text: {
@@ -38,8 +43,14 @@ const App = () => {
 
   return (
     // Inline styling :
-    <SafeAreaView style={{marginHorizontal: 'auto'}}>
-      <Text style={styles.text}>Hello world!!!</Text>
+    <SafeAreaView style={{
+        marginHorizontal: 'auto', 
+        height: "100%", 
+        width: "100%", 
+        backgroundColor: theme === 'dark' ? "black":"#E4DFDA" 
+      }}
+    >
+      <Text style={[styles.text, { color: theme === 'dark' ? "white":"black" }]}>Hello world!!!</Text>
 
       <Image
         source={{
@@ -53,19 +64,19 @@ const App = () => {
       <TouchableOpacity
         style={styles.button}
         onPress={() => Alert.alert('TouchableOpacity button pressed!!!')}>
-        <Text style={styles.buttonText}>Click Me</Text>
+        <Text style={[styles.buttonText, { color: theme === 'dark' ? "black":"white" }]}>Click Me</Text>
       </TouchableOpacity>
 
       <TouchableHighlight
         style={styles.button}
         onPress={() => Alert.alert('TouchableHighlight button pressed!!!')}>
-        <Text style={styles.buttonText}>Click Me</Text>
+        <Text style={[styles.buttonText, { color: theme === 'dark' ? "black":"white" }]}>Click Me</Text>
       </TouchableHighlight>
 
       <Pressable
-        style={styles.button}
+        style={[styles.button, { color: theme === 'dark' ? "black":"white" }]}
         onPress={() => Alert.alert('Pressable button pressed!!!')}>
-        <Text style={styles.buttonText}>Hello 👋</Text>
+        <Text style={[styles.buttonText, { color: theme === 'dark' ? "black":"white" }]}>Hello 👋</Text>
       </Pressable>
     </SafeAreaView>
   );
@@ -90,6 +101,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#BCB6FF',
     padding: 10,
     borderRadius: 5,
+    cursor: "pointer"
   },
   buttonText: {
     textAlign: 'center',
