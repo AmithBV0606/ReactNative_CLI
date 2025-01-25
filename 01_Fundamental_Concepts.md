@@ -1,3 +1,7 @@
+# Fundamental Concepts Notes : 
+
+#### App.tsx
+```tsx
 import {View, Text, Image, Button, TouchableOpacity, Alert, TouchableHighlight, Pressable} from 'react-native';
 import React from 'react';
 
@@ -68,3 +72,7 @@ const App = () => {
 };
 
 export default App;
+```
+
+#### Result : 
+<img src="./assets/Pic-1.png" />
