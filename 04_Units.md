@@ -1,5 +1,7 @@
 # units in React-Native
 
+**Note :** Always prefer using "%" instead of plane values.
+
 ```jsx
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
